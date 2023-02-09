@@ -1,11 +1,12 @@
-<h1>Listing Articles</h1>
+<h1>Listing Assignments</h1>
 
 <%= link_to 'New assignment', new_assignment_path %>
+
 <table>
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <th></th>
+    <th colspan="2"></th>
   </tr>
 
   <% @assignments.each do |assignment| %>
@@ -13,6 +14,7 @@
       <td><%= assignment.title %></td>
       <td><%= assignment.text %></td>
       <td><%= link_to 'Show', assignment_path(assignment) %></td>
+      <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
     </tr>
   <% end %>
 </table>
