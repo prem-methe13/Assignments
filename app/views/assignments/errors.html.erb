@@ -1,0 +1,15 @@
+<p>Test</p>
+
+<% if @assignment.errors.any? %>
+    <div id="error232">
+      <h2>
+        <%= pluralize(@assignment.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @assignment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
