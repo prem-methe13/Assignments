@@ -14,9 +14,7 @@ class AssignmentsController < ApplicationController
     if @assignment.save
       redirect_to @assignment
     else
-      respond_to do |format|
-        format.html { render "new" }
-      end
+      render 'new'
     end
   end
 
@@ -38,7 +36,16 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.find(params[:id])
   end
 
-
+  def destroy
+    @assignment = Assignment.find(params[:id])
+    if @assignment.delete
+      flash[:notice] = 'Assignment deleted!'
+      redirect_to assignments_path
+    else
+      flash[:error] = 'Failed to delete assignment!'
+      render :destroy
+    end
+  end
 
   private
   def assignment_params

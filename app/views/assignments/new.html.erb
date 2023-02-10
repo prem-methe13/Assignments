@@ -1,32 +1,5 @@
-<%= form_with scope: :assignment, url: assignments_path, local: true, data: { turbo: false } do |form| %>
+<h1>New Assignment</h1>
 
-  <% if @assignment.errors.any? %>
-    <div id="error232">
-      <h2>
-        <%= pluralize(@assignment.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @assignment.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', assignments_path%>
