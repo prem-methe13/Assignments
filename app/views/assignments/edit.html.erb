@@ -1,36 +1,5 @@
 <h1>Edit assignment</h1>
 
-<%= form_with(model: @assignment, local: true) do |form| %>
+<%= render 'form' %>
 
-  <% if @assignment.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@assignment.errors.count, "error") %> prohibited
-        this assignment from being saved:
-      </h2>
-      <ul>
-        <% @assignment.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-
-<% end %>
-
-<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
 <%= link_to 'Back', assignments_path %>
